@@ -22,7 +22,7 @@ HttpSession s=request.getSession();
     <div class="row">
     <div class="col-md-10">
       <div class="card-counter primary">
-        <span class="count-namee">Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span class="count-namee">Name:&nbsp;&nbsp;</span>
         <span class="count-button"><button class="btn btn-primary">Edit</button></span><br>
         <span class="count-namee">value</span>
       </div>
@@ -31,7 +31,7 @@ HttpSession s=request.getSession();
         <div class="row">
     <div class="col-md-10">
       <div class="card-counter primary">
-        <span class="count-namee">Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span class="count-namee">Email:&nbsp;&nbsp;</span>
         <span class="count-button"><button class="btn btn-primary">Edit</button></span><br>
         <span class="count-namee">value</span>
       </div>
