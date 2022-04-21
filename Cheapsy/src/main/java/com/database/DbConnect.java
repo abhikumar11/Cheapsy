@@ -53,4 +53,18 @@ public class DbConnect {
 	 }
 	 return rs;
  }
+ public static ResultSet fetchData(String query)
+ {
+	 ResultSet rs=null;
+	 try
+	 {
+		 Connection con=connect();
+	     Statement stmt=con.createStatement();
+		 rs=stmt.executeQuery(query);
+	 }catch(Exception ex)
+	 {
+		 ex.printStackTrace();
+	 }
+	 return rs;
+ }
 }
