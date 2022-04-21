@@ -5,7 +5,7 @@
 
   <!--Custom CSS-->
   <link rel="stylesheet" href="css/style.css">
-  <title>Tech Renting Website</title>
+  <title>Cheapsy<title>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="banncolor">
