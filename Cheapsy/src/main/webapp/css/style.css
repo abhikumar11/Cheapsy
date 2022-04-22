@@ -1,0 +1,176 @@
+.owl-carousel .item {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.owl-next {
+    float: right;
+}
+
+.owl-prev {
+    float: left;
+}
+
+.owl-prev span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.owl-next span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#banncolor {
+    background-color: #00539CFF;
+}
+
+
+
+/********************* Shopping Demo-4 **********************/
+.product-grid4,
+.product-grid4 .product-image4 {
+    position: relative
+}
+
+.product-grid4 {
+    font-family: Poppins, sans-serif;
+    text-align: center;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.product-grid4:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2)
+}
+
+.product-grid4 .product-image4 a {
+    display: block
+}
+
+.product-grid4 .product-image4 img {
+    width: 100%;
+    height: auto
+}
+
+.product-grid4 .product-content {
+    padding: 25px
+}
+
+.product-grid4 .title {
+    font-size: 15px;
+    font-weight: 400;
+    text-transform: capitalize;
+    margin: 0 0 7px;
+}
+
+.product-grid4 .title a {
+    color: #222;
+    text-decoration: none;
+}
+
+.product-grid4 .title a:hover {
+    color: #00539CFF;
+}
+
+.product-grid4 .price {
+    color: #16a085;
+    font-size: 17px;
+    font-weight: 700;
+    margin: 0 2px 15px 0;
+    display: block
+}
+
+.product-grid4 .price span {
+    color: #909090;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-decoration: line-through;
+    text-align: left;
+    vertical-align: middle;
+    display: inline-block
+}
+
+.product-grid4 .add-to-cart {
+    border: 1px solid;
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 4px;
+    background-color: #00539CFF;
+    text-decoration: none;
+}
+
+.product-grid4 .add-to-cart:hover {
+    background-color: rgb(3, 105, 195);
+}
+
+@media only screen and (max-width:990px) {
+    .product-grid4 {
+        margin-bottom: 30px
+    }
+}
+
+#loginbtn {
+    background-color: #00539CFF;
+}
+
+.login-form {
+    margin: 0px 10px;
+}
+
+.h3 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.login-container {
+    max-width: 360px;
+}
+
+.divider {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.divider hr {
+    margin: 7px 0px;
+    width: 35%;
+}
+
+.left {
+    float: left;
+}
+
+.lefta {
+    float:left;
+}
+.right {
+    float: right;
+}
+.right a{
+    text-decoration: none;
+}
+.signup-btn
+{
+    width: 100%;
+    background-color:#003459 ;
+    color: white;
+}
+.signin-btn
+{
+    width: 100%;
+    background-color: #00539CFF;
+}
+.signin-btn:hover
+{
+    background-color: rgb(17, 79, 133);
+    
+}
+  
