@@ -30,7 +30,7 @@
         </ul>
         <div>
           <ul class="nav navbar-nav navbar-right">
-         <li class="nav-item mx-2"><a class="nav-link text-white" href="sellerHome.jsp">Become Seller</a></li>
+         <li class="nav-item mx-2"><a class="nav-link text-white" href="#">Become Seller</a></li>
         <li class="nav-item mx-2"><a class="nav-link text-white" href="#">Cart</a></li>
           <li class="nav-item dropdown mx-2">
               <a class="nav-link dropdown-toggle text-white" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -41,8 +41,8 @@
              if(ss.getAttribute("username")==null)
              {%>
            <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-               <li><a class="dropdown-item" href="login.jsp">Login</a></li>
-               <li><a class="dropdown-item" href="signup.jsp">Create Account</a></li>
+               <li><a class="dropdown-item" href="SellerLogin.jsp">Login</a></li>
+               <li><a class="dropdown-item" href="sellerSignUp.jsp">Create Account</a></li>
              <%}
              else
              {%>
@@ -51,7 +51,6 @@
             ss.setAttribute("loginvalue",1);
             String name=String.valueOf(ss.getAttribute("username")); %>
                <li><a class="dropdown-item" href="profile.jsp"><%=name%></a></li>
-               <li><a class="dropdown-item" href="{% url 'orders' %}">Orders</a></li>
                <li><a class="dropdown-item" href="loginUser.jsp">Logout</a></li>
              </ul>
      

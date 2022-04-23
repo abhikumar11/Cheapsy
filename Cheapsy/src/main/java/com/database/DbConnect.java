@@ -4,6 +4,7 @@ import java.sql.*;
 
 import com.userbean.LoginUser;
 import com.userbean.SaveUser;
+import com.userbean.SaveSeller;
 
 public class DbConnect {
  public static Connection connect()
@@ -35,6 +36,26 @@ public class DbConnect {
 		ex.printStackTrace();
 	}
 	return status;
+ }
+ public static int saveSeller(SaveSeller obj)
+ {
+	 int status=-1;
+		
+		try
+		{
+			Connection con=connect();
+			String query="insert into seller_user_reg values(?,?,?)";
+			PreparedStatement stmt=con.prepareStatement(query);
+			stmt.setString(1,obj.getUserName());
+			stmt.setString(2,obj.getUserId());
+			stmt.setString(3,obj.getPassword());
+			status=stmt.executeUpdate();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		return status;
+
  }
  public static ResultSet validateUser(LoginUser obj)
  {

@@ -1,22 +1,11 @@
 <html>
     <head>
-        <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-      
-        <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-      
-        <!--Owl Carousel CSS-->
-        <link rel="stylesheet" href="/app/static/app/css/owl.carousel.min.css">
-      
-        <!--FontAwesome CSS-->
-        <link rel="stylesheet" href="/app/static/app/css/all.min.css">
-      
-        <!--Custom CSS-->
         <link rel="stylesheet" href="css/style.css">
 		<script src="validate.js"></script>
-        <title>Tech Renting Website</title>
+        <title>Cheapsy</title>
       </head>
     <body>
         <div class="container login-container">

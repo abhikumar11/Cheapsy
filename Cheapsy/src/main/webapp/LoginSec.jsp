@@ -6,7 +6,6 @@
 <head>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/app/static/app/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
   <title>Cheapsy</title>
   <style type="text/css">
