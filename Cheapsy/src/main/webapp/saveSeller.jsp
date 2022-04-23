@@ -8,14 +8,16 @@
 <jsp:useBean id="obj" class="com.userbean.SaveSeller"></jsp:useBean>
 <jsp:setProperty property="*" name="obj"/>
 <%
+HttpSession s=request.getSession(true);
 int status=DbConnect.saveSeller(obj);
 if(status!=-1)
 {
-  response.sendRedirect("sellerLogin.jsp");
+	s.setAttribute("email",request.getParameter("userId").toString());
+  response.sendRedirect("sellerAcc.jsp");
 }
 else
 {
-	response.sendRedirect("sellerAcc.jsp");
+	response.sendRedirect("sellerSignUp.jsp");
 }
 %>
 </body>
