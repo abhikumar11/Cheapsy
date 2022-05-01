@@ -127,7 +127,7 @@ background: #eee;
         </a>
     </div> 
         <div class="col-md-3 prev-account-item">
-            <a href="#">
+            <a href="address.jsp">
         <div class="row">
             <div class="col-md-4 ">
              <i class="fa fa-map-marker"></i>

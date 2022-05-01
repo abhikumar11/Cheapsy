@@ -13,24 +13,14 @@
 <jsp:setProperty property="*" name="obj"/>
 <%
 HttpSession ss=request.getSession();
-if(ss.getAttribute("cartvalidate")!=null)
+if(ss.getAttribute("loginvalue")==null)
 {
-	ResultSet status=DbConnect.validateUser(obj);
+	ResultSet status=DbConnect.validateSeller(obj);
 	if(status.next())
 	{
 	     ss.setAttribute("username",status.getString(1));
-	     ss.setAttribute("email",status.getString(2));
-	   response.sendRedirect("productdetail.jsp");
-	}
-}
-else if(ss.getAttribute("loginvalue")==null)
-{
-	ResultSet status=DbConnect.validateUser(obj);
-	if(status.next())
-	{
-	     ss.setAttribute("username",status.getString(1));
-	     ss.setAttribute("email",status.getString(2));
-	   response.sendRedirect("home.jsp");
+	     ss.setAttribute("email", status.getString(2));
+	   response.sendRedirect("sellerDashbord.jsp");
 	}
 }
 else

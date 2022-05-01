@@ -1,42 +1,64 @@
+<%@page import="com.database.DbConnect" %>
+<%@page import="java.sql.ResultSet" %>
+<html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <title>Tech Renting Website</title>
 </head>
+<body>
 <div class="container">
  <div class="row mt-5">
   <div class="col-sm-6">
-    <h4>Order Summary</h4>
-    <hr>
-      <div class="card mb-2">
-        <div class="card-body">
-          <h5>Product: Product 1</h5>
-          <p>Quantity: 2</p>
-          <p class="fw-bold">Price: 100.00</p>
-        </div>
-      </div>
-    <small>Term and Condition: Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, ullam saepe! Iure optio repellat dolor velit, minus rem. Facilis cumque neque numquam laboriosam, accusantium adipisci nisi nihil in et quis?</small>
+  <table class="table table-bordered">
+  <thead class="bg-primary">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Qty</th>
+      <th scope="col">Price</th>
+      <th scope="col">Duration</th>
+      <th scope="col">Sub Total</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% 
+  HttpSession s=request.getSession();
+  String email=String.valueOf(s.getAttribute("email"));
+  String query="select * from product_cart where uemail='"+email+"'";
+  ResultSet rs=DbConnect.fetchData(query);
+  float total=0;
+  while(rs.next())
+  {
+  %>
+    <tr>
+      <td id="pname"><%=rs.getString(3) %></td>
+      <td><%=rs.getInt(4) %></td>
+      <td><%=rs.getFloat(5) %></td>
+      <td><%=rs.getInt(6) %>&nbsp;Month</td>
+      <%total+=rs.getInt(4)*rs.getFloat(5)*rs.getInt(6); %>
+      <td><%=(rs.getInt(4)*rs.getFloat(5)*rs.getInt(6)) %></td>
+    </tr>
+    <%} %>
+   </tbody>
+</table>
   </div>
   <div class="col-sm-4 offset-sm-1">
-    <h4>Select Shipping Address</h4>
-    <hr>
-    <form action="">
-      <div class="card">
-        <div class="card-body">
-        <h5>Sonam Kumari</h5>
-        <p>Hirapur Dhanbad Jharkahnd</p>
-        </div>
-      </div>
-        <div class="form-check mt-2 mb-5">
-          <input class="form-check-input" type="radio" value="">
-          <label class="form-check-label fw-bold" for="">
-            Address: 1 </label>
-        </div>
-        <div class="text-end">
-          <button type="submit" class="btn btn-warning mt-3 px-5 fw-bold">Continue</button>
-        </div>
-      </form>
+	<div class="card">
+  <h5 class="card-header">Shipping Address</h5>
+  <div class="card-body">
+    <p class="card-text"></p>
+  </div>
+</div>
+<br/>
+<div class="card">
+  <h5 class="card-header">Payment Details</h5>
+  <div class="card-body">
+    <p class="card-text"></p>
+  </div>
+</div>
     </div>
   </div>
 </div>
+</body>
+</html>

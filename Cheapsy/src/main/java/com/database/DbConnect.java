@@ -9,7 +9,9 @@ import java.sql.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.userbean.AddToCart;
 import com.userbean.LoginUser;
+import com.userbean.SaveProduct;
 import com.userbean.SaveUser;
 import com.userbean.SaveSeller;
 import com.userbean.SaveSellerDetails;
@@ -80,6 +82,23 @@ public class DbConnect {
 	 {
 		 Connection con=connect();
 		 String query="select * from user_reg where email_id=? and password=?";
+		 PreparedStatement stmt=con.prepareStatement(query);
+		 stmt.setString(1, obj.getUserName());
+		 stmt.setString(2,obj.getPassword());
+		 rs=stmt.executeQuery();
+	 }catch(Exception ex)
+	 {
+		 ex.printStackTrace();
+	 }
+	 return rs;
+ }
+ public static ResultSet validateSeller(LoginUser obj)
+ {
+	 ResultSet rs=null;
+	 try
+	 {
+		 Connection con=connect();
+		 String query="select * from seller_user_reg where email=? and password=?";
 		 PreparedStatement stmt=con.prepareStatement(query);
 		 stmt.setString(1, obj.getUserName());
 		 stmt.setString(2,obj.getPassword());
@@ -173,4 +192,47 @@ public class DbConnect {
 	 }
 	 return status;
  }
+ public static int addToCart(AddToCart obj,String email)
+ {
+	 int status=-1;
+	 try
+	 {
+		 Connection con=connect();
+		 String query="insert into product_cart values(?,?,?,?,?,?)";
+		 PreparedStatement stmt=con.prepareStatement(query);
+		 stmt.setString(1,obj.getSemail());
+		 stmt.setString(2,email);
+		 stmt.setString(3,obj.getPname());
+		 stmt.setInt(4,Integer.parseInt(String.valueOf(obj.getQty())));
+		 stmt.setFloat(5,Float.parseFloat(String.valueOf(obj.getPprice())));
+		 stmt.setInt(6, Integer.parseInt(String.valueOf(obj.getRmonth())));
+		 return stmt.executeUpdate();
+	 }catch(Exception ex)
+	 {
+		 ex.printStackTrace();
+	 }
+	 return status;
+ }
+ public static int saveProduct(SaveProduct obj,String email)
+ {
+	 int status=-1;
+	 try
+	 {
+		 Connection con=connect();
+		 String query="insert into product_details values(?,?,?,?,?,?)";
+		 PreparedStatement stmt=con.prepareStatement(query);
+		 stmt.setString(1,email);
+		 stmt.setString(2,obj.getPname());
+		 stmt.setString(3,obj.getPdes());
+		 stmt.setString(4,obj.getPcat());
+		 stmt.setFloat(5,Float.parseFloat(obj.getPprice()));
+		 stmt.setString(6,"images/product/"+obj.getImage());
+		 return stmt.executeUpdate();
+	 }catch(Exception ex)
+	 {
+		 ex.printStackTrace();
+	 }
+	 return status;
+ }
+
 }

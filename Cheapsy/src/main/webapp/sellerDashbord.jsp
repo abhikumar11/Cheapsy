@@ -15,7 +15,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="electronicsDropdown">
               <li><a class="dropdown-item" href="#">My Listings</a></li>
-              <li><a class="dropdown-item" href="#">Add New</a></li>
+              <li><a class="dropdown-item" href="productListing.jsp">Add New</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -29,12 +29,6 @@
             </ul>
           </li>
         </ul>
-        <form class="d-flex">
-          <div class="input-group">
-            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-            <button type="button" class="btn btn-outline-primary">search</button>
-          </div>
-        </form>
         <div>
          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item dropdown mx-2">
@@ -45,7 +39,7 @@
              HttpSession ss=request.getSession(false);
              if(ss.getAttribute("username")==null)
              {%>
-           <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+            <ul class="dropdown-menu" aria-labelledby="profileDropdown">
                <li><a class="dropdown-item" href="login.jsp">Login</a></li>
                <li><a class="dropdown-item" href="signup.jsp">Create Account</a></li>
              <%}
@@ -56,7 +50,6 @@
             ss.setAttribute("loginvalue",1);
             String name=String.valueOf(ss.getAttribute("username")); %>
                <li><a class="dropdown-item" href="profile.jsp"><%=name%></a></li>
-               <li><a class="dropdown-item" href="{% url 'orders' %}">Orders</a></li>
                <li><a class="dropdown-item" href="loginUser.jsp">Logout</a></li>
              </ul>
      
@@ -156,7 +149,4 @@
 </div>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-  <script src="/app/static/app/js/owl.carousel.min.js"></script>
-  <script src="/app/static/app/js/all.min.js"></script>
-  <script src="/app/static/app/js/myscript.js"></script>
 </body>

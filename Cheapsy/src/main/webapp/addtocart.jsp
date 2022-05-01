@@ -66,36 +66,67 @@
       </div>
     </div>
    </nav>
-    <div class="row m-3">
-    <img src="images/banner/b1.jpg" class="img-fluid" alt="Placeholder image">
+
+
+  <div class="container my-5">
+ <div class="row">
+  <h1 class="text-center mb-5">Shopping Cart</h1>
+  <div class="col-sm-8">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Qty</th>
+      <th scope="col">Price</th>
+      <th scope="col">Duration</th>
+      <th scope="col">Sub Total</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% 
+  HttpSession s=request.getSession();
+  String email=String.valueOf(s.getAttribute("email"));
+  String query="select * from product_cart where uemail='"+email+"'";
+  ResultSet rs=DbConnect.fetchData(query);
+  float total=0;
+  while(rs.next())
+  {
+  %>
+    <tr>
+      <td id="pname"><%=rs.getString(3) %></td>
+      <td><%=rs.getInt(4) %></td>
+      <td><%=rs.getFloat(5) %></td>
+      <td><%=rs.getInt(6) %>&nbsp;Month</td>
+      <%total+=rs.getInt(4)*rs.getFloat(5)*rs.getInt(6); %>
+      <td><%=(rs.getInt(4)*rs.getFloat(5)*rs.getInt(6)) %></td>
+    </tr>
+    <%} %>
+   </tbody>
+</table>
+  </div>
+
+  <div class="col-sm-4">
+   <div class="card">
+    <div class="card-body">
+      <h3>The Total Amount of</h3>
+      <ul class="list-group">
+       <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">Amount<span><%=total %></span></li>
+       <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+        <div>
+           <strong>Total</strong>
+         </div>
+         <span><strong><%=total %></strong></span>
+       </li>
+      </ul>
+      <div class="d-grid"><a href="checkout.jsp" class="btn btn-primary">Check Out</a></div>
     </div>
-<div class="m-3">
- <h2>Laptop</h2>
-  <div class="row">
-   <%
-      String query="select * from product_details where categoery='Laptop' limit 4";
-       ResultSet rs=DbConnect.fetchData(query);
-       while(rs.next())
-       {%>
-      <div class="col-md-3 col-sm-6">
-          <div class="product-grid4">
-              <div class="product-image4">
-                  <a>
-                      <img class="pic-1" src=<%=rs.getString(6) %>>
-                  </a>
-              </div>
-              <div class="product-content">
-                  <h2 class="title"><%=rs.getString(2)%></h2>
-                  <div class="price">
-                      <b>&#8377;<%=rs.getFloat(5)%>&nbsp;</b><small>Per Month</small>
-                  </div>
-                <a class="add-to-cart" href="productdetail.jsp?title=<%=rs.getString(2)%>">View Details</a>
-              </div>
-          </div>
-          </div>
-         <%}%>
-      </div>
+   </div>
+  </div>
+ </div>
 </div>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  <script src="/app/static/app/js/owl.carousel.min.js"></script>
+  <script src="/app/static/app/js/all.min.js"></script>
+  <script src="/app/static/app/js/myscript.js"></script>
 </body>

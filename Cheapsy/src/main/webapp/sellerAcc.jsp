@@ -1,27 +1,8 @@
+ <html>
+ <head>
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
-<script type="text/javascript">
- function getPin()
- {
-	 var v=document.selleracc.pincode.value;
-	 var url="fetchCity.jsp?pincode="+v;
-	 request=new XMLHttpRequest();
-	 try
-	 {
-		request.open("GET",url,false);
-		request.send();
-		var val=request.responseText;
-		
-		document.selleracc.city.value=val;
-	 }
-	 catch(e)
-	 {
-		 alert(v);
-	 }
-	 
- }
-</script>
-
-
+ </head>
+ <body>
 <div class="container">
     <h2>Registration Form</h2>
 	<div class="col-md-10">
@@ -78,3 +59,5 @@
 				</div>
 	</div>
 	</div>
+	</body>
+	</html>

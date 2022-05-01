@@ -41,7 +41,7 @@
              if(ss.getAttribute("username")==null)
              {%>
            <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-               <li><a class="dropdown-item" href="SellerLogin.jsp">Login</a></li>
+               <li><a class="dropdown-item" href="sellerLogin.jsp">Login</a></li>
                <li><a class="dropdown-item" href="sellerSignUp.jsp">Create Account</a></li>
              <%}
              else
